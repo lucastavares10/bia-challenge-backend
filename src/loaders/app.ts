@@ -16,6 +16,14 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   return next()
 })
 
+morgan.token('body', (req: express.Request) => {
+  const isNotGet = req.method !== 'GET'
+  if (isNotGet) {
+    return JSON.stringify(req.body)
+  }
+  return 'body-empty'
+})
+
 app.use(morgan(':date[iso] :method :url :status :body - :total-time ms'))
 
 app.use('/api', routes)

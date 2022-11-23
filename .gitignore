@@ -8,5 +8,7 @@ build
 
 dist
 
+db
+
 
 .postgresql
