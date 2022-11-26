@@ -4,50 +4,30 @@ export enum ResponseStatus {
   INTERNAL_SERVER_ERROR = 'INTERNAL_SERVER_ERROR',
   UNAUTHORIZED = 'UNAUTHORIZED',
   OK = 'OK',
+  CREATED = 'CREATED',
 }
 
-interface IResponse {
+export interface IResponse {
   status: ResponseStatus
   data?: any[] | any
   message?: string
-  errors?: { message: string }[]
-  auditorship?: { operation: string; detail: string }
+  errors?: string[]
   totalRegisters?: number
 }
 
-const responseStatusMap = new Map()
-
-responseStatusMap.set(403, ResponseStatus.UNAUTHORIZED)
-responseStatusMap.set(404, ResponseStatus.NOT_FOUND)
-responseStatusMap.set(400, ResponseStatus.BAD_REQUEST)
-responseStatusMap.set(500, ResponseStatus.INTERNAL_SERVER_ERROR)
-
-function getErrorMessages(errors: { message: string }[]) {
-  if (!errors || !Array.isArray(errors)) return null
-  return errors.map((error) => error.message)
+export function getError(error: any): string {
+  return error instanceof Error ? error.message : String(error)
 }
 
-function getResponse({
-  status,
-  data = [],
-  message = '',
-  errors = [],
-  auditorship,
-  totalRegisters,
-}: IResponse) {
-  return {
-    status,
-    message,
-    data,
-    errors: getErrorMessages(errors),
-    auditorship,
-    totalRegisters,
-  }
+const responseStatusMap = new Map([
+  [403, ResponseStatus.UNAUTHORIZED],
+  [404, ResponseStatus.NOT_FOUND],
+  [400, ResponseStatus.BAD_REQUEST],
+  [500, ResponseStatus.INTERNAL_SERVER_ERROR],
+])
+
+const getResposeStatus = (statusCode: number): ResponseStatus => {
+  return responseStatusMap.get(statusCode) ?? ResponseStatus.BAD_REQUEST
 }
 
-export { responseStatusMap }
-
-export default {
-  ResponseStatus,
-  getResponse,
-}
+export { responseStatusMap, getResposeStatus }

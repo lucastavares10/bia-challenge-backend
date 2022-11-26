@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 import { DataSource } from 'typeorm'
 
-import Entities from '../entities/index'
+import Entities from '../infra/mongo/entities'
 import dbConfig from '../config/mongo'
 
 const AppDataSource = new DataSource({
@@ -12,7 +12,7 @@ const AppDataSource = new DataSource({
   entities: [...Object.values(Entities)],
   logging: true,
   maxQueryExecutionTime: 1000,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 })
 
 export default AppDataSource

@@ -7,6 +7,8 @@ const app = express()
 
 app.use(express.urlencoded({ extended: true }))
 
+app.use(express.json())
+
 app.use((req: Request, res: Response, next: NextFunction) => {
   const { offset, limit } = req.headers
 
