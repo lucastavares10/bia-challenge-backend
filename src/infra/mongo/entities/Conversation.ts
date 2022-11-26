@@ -6,10 +6,10 @@ export class Conversation {
   id!: string
 
   @Column()
-  sessionId!: string
+  botId!: string
 
   @Column()
-  clientId!: string
+  socketId!: string
 
   @Column()
   createdAt!: Date

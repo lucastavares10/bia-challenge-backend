@@ -1,6 +1,6 @@
 export type Conversation = {
   id: string
-  sessionId: string
-  clientId: string
+  botId: string
+  socketId: string
   createdAt: Date
 }
