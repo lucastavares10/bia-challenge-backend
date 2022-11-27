@@ -7,8 +7,8 @@ export class SocketMessageDispatcher implements MessageDispatcher {
   async dispatch(data: MessageDispatcher.Params): Promise<void> {
     const socketConn = getSocketIoServer()
 
-    socketConn.to(data.socketId).emit('send_message_to_user', data.data.text)
+    socketConn.to(data.socketId).emit('send_message_to_user', data.data)
 
-    logger.info(`Enviando mensagem para ${data.socketId}: `, data.data.text)
+    logger.info(`Enviando mensagem para ${data.socketId}: ${data.data.text}`)
   }
 }

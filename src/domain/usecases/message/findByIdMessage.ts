@@ -5,5 +5,5 @@ export interface FindByIdMessage {
 }
 
 export namespace FindByIdMessage {
-  export type Result = Message
+  export type Result = Message | null
 }

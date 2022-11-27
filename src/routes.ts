@@ -13,7 +13,7 @@ import { makeStartConversationControllerFactory } from './main/factories/convers
 //messages
 import { makeSendMessageControllerFactory } from './main/factories/message/makeSendMessageControllerFactory'
 import { makeFindByIdMessageControllerFactory } from './main/factories/message/makeFindByIdMessageControllerFactory'
-// import { makeListAllMessageByConversationIdControllerFactory } from './main/factories/message/makeListAllMessageByConversationIdControllerFactory'
+import { makeFindAllByConversationIdMessageControllerFactory } from './main/factories/message/makeFindAllByConversationIdMessageControllerFactory'
 
 const router = Router()
 
@@ -48,8 +48,8 @@ router.post('/messages', (req: Request, res: Response) => {
 router.get('/messages/:id', (req: Request, res: Response) => {
   makeFindByIdMessageControllerFactory().handle(req, res)
 })
-// router.get('/messages/:conversationId', (req: Request, res: Response) => {
-//   makeListAllMessageByConversationIdControllerFactory().handle(req, res)
-// })
+router.get('/messages', (req: Request, res: Response) => {
+  makeFindAllByConversationIdMessageControllerFactory().handle(req, res)
+})
 
 export default router

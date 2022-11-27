@@ -3,16 +3,17 @@ import { CreateConversationRepository } from '@/data/protocols/conversation/crea
 import { RegisterMessageRepository } from '@/data/protocols/message/registerMessageRepository'
 import { FindByIdBotRepository } from '@/data/protocols/bot/findByIdBotRepository'
 import { CreateUserSessionRepository } from '@/data/protocols/user/createUserSessionRepository'
+import { ResponsesTextGeneratorRepository } from '@/data/protocols/responsesTextGeneratorRepository'
 import { MessageDispatcher } from '@/data/protocols/socketMessageDispatcher'
 import { NotFound } from '@/data/errors/notFound'
 import { InternalError } from '@/data/errors/internalError'
-import { getInitialMessage } from '@/utils/botResponses'
 
 export class StartConversationUseCase implements StartConversation {
   constructor(
     private readonly findByIdBotRepository: FindByIdBotRepository,
     private readonly createUserSessionRepository: CreateUserSessionRepository,
     private readonly createConversationRepository: CreateConversationRepository,
+    private readonly responsesTextGeneratorRepository: ResponsesTextGeneratorRepository,
     private readonly registerMessageRepository: RegisterMessageRepository,
     private readonly socketMessageDispatcher: MessageDispatcher
   ) {}
@@ -32,25 +33,28 @@ export class StartConversationUseCase implements StartConversation {
     const conversation =
       await this.createConversationRepository.createConversation({
         botId: data.botId,
-        sessionId: userSessionId,
+        sessionId: userSessionId.toString(),
         socketId: data.socketId,
       })
 
     if (!conversation) throw new InternalError('Error ao iniciar conversa!')
 
-    const initialMessage = getInitialMessage()
+    const initialMessage =
+      await this.responsesTextGeneratorRepository.generateInitialMessage()
 
     const message = await this.registerMessageRepository.registerMessage({
-      conversationId: conversation.id,
+      conversationId: conversation.id.toString(),
       from: data.botId,
-      to: userSessionId,
+      to: userSessionId.toString(),
       text: initialMessage,
     })
 
-    await this.socketMessageDispatcher.dispatch({
-      socketId: conversation.socketId,
-      data: message,
-    })
+    if (conversation.socketId) {
+      await this.socketMessageDispatcher.dispatch({
+        socketId: conversation.socketId,
+        data: message,
+      })
+    }
 
     return { conversation, message }
   }

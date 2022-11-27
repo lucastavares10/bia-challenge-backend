@@ -9,9 +9,15 @@ type SendMessageParams = {
   from: string
   to: string
   text: string
+  socketId: string
+}
+
+type SendMessageResult = {
+  messageId: string
+  reply: Message
 }
 
 export namespace SendMessage {
   export type Params = SendMessageParams
-  export type Result = Message
+  export type Result = SendMessageResult
 }
