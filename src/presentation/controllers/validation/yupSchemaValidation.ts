@@ -11,5 +11,19 @@ export const conversationYupValidationSchema = Yup.object().shape({
     .typeError('botId deve ser uma string')
     .required('botId é obrigatório'),
   socketId: Yup.string().typeError('socketId deve ser uma string'),
-  //.required('socketId é obrigatório'),
+})
+
+export const messageYupValidationSchema = Yup.object().shape({
+  conversationId: Yup.string()
+    .typeError('conversationId deve ser uma string')
+    .required('conversationId é obrigatório'),
+  from: Yup.string()
+    .typeError('from deve ser uma string')
+    .required('from é obrigatório'),
+  to: Yup.string()
+    .typeError('to deve ser uma string')
+    .required('to é obrigatório'),
+  text: Yup.string()
+    .typeError('text deve ser uma string')
+    .required('text é obrigatório'),
 })
