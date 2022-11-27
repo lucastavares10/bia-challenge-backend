@@ -53,7 +53,7 @@ export class BotRepository
 
     if (!bot) return null
 
-    await botRepository.update(bot?.id, newData)
+    await botRepository.update(bot.id, newData)
 
     return true
   }
