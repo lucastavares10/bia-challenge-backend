@@ -20,7 +20,7 @@ export class FindByIdBotController implements Controller {
       }
 
       const bot = await this.findByIdBotUseCase.execute(id)
-      return res.status(201).json({
+      return res.status(200).json({
         status: ResponseStatus.OK,
         data: bot,
       })

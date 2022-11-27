@@ -3,7 +3,7 @@ import { IResponse, ResponseStatus } from '@/utils/service'
 import ControllersExceptionHandler from '@/presentation/helpers/ControllersExceptionHandler'
 import { Controller } from '@/presentation/protocols/controller'
 import { CreateBot } from '@/domain/usecases/bot/createBot'
-import { botYupValidationSchema } from './validation/yupSchemaValidation'
+import { botYupValidationSchema } from '../validation/yupSchemaValidation'
 
 export class CreateBotController implements Controller {
   constructor(private readonly createBotUseCase: CreateBot) {}

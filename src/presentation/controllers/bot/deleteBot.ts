@@ -20,7 +20,7 @@ export class DeleteBotController implements Controller {
       }
 
       const deleted = await this.deleteBotUseCase.execute(id)
-      return res.status(201).json({
+      return res.status(204).json({
         status: ResponseStatus.OK,
         data: deleted,
       })

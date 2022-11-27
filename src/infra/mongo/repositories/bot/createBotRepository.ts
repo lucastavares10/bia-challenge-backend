@@ -22,39 +22,25 @@ export class BotRepository
   ): Promise<CreateBotRepository.Result> {
     const botRepository = AppDataSource.getRepository(Bot)
 
-    const bot = await botRepository.save(data)
-
-    return { id: bot.id, name: bot.name }
+    return await botRepository.save(data)
   }
 
   async findById(id: string): Promise<FindByIdBotRepository.Result> {
     const botRepository = AppDataSource.getRepository(Bot)
 
-    const bot = await botRepository.findOne(id)
-
-    if (!bot) return null
-
-    return { id: bot.id, name: bot.name }
+    return await botRepository.findOne(id)
   }
 
   async findByName(name: string): Promise<FindByNameBotRepository.Result> {
     const botRepository = AppDataSource.getRepository(Bot)
 
-    const bot = await botRepository.findOne({ where: { name: name } })
-
-    if (!bot) return null
-
-    return { id: bot.id, name: bot.name }
+    return await botRepository.findOne({ where: { name: name } })
   }
 
   async findAllBot(): Promise<FindAllBotRepository.Result> {
     const botRepository = AppDataSource.getRepository(Bot)
 
-    const botList = await botRepository.find()
-
-    return botList.map((bot) => {
-      return { id: bot.id, name: bot.name }
-    })
+    return await botRepository.find()
   }
 
   async updateBot(

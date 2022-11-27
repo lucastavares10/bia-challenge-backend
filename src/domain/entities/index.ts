@@ -1,4 +1,4 @@
 export * from './Bot'
 export * from './Conversation'
 export * from './Message'
-export * from './User'
+export * from './UserSession'

@@ -13,7 +13,7 @@ export class FindAllBotController implements Controller {
   ): Promise<Response<IResponse>> {
     try {
       const bot = await this.findAllBotUseCase.execute()
-      return res.status(201).json({
+      return res.status(200).json({
         status: ResponseStatus.OK,
         data: bot,
       })

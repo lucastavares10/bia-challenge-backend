@@ -8,7 +8,7 @@ import { makeUpdateBotControllerFactory } from './main/factories/bot/makeUpdateB
 import { makeDeleteBotControllerFactory } from './main/factories/bot/makeDeleteBotControllerFactory'
 
 // //conversations
-// import { makeStartConversationControllerFactory } from './main/factories/conversation/makeStartConversationControllerFactory'
+import { makeStartConversationControllerFactory } from './main/factories/conversation/makeStartConversationControllerFactory'
 // import { makeGetConversationControllerFactory } from './main/factories/conversation/makeGetConversationControllerFactory'
 
 // //messages
@@ -38,9 +38,9 @@ router.delete('/bots/:id', (req: Request, res: Response) => {
 })
 
 // //conversations
-// router.post('/conversations', (req: Request, res: Response) => {
-//   makeStartConversationControllerFactory().handle(req, res)
-// })
+router.post('/conversations', (req: Request, res: Response) => {
+  makeStartConversationControllerFactory().handle(req, res)
+})
 // router.get('/conversations/:conversationId', (req: Request, res: Response) => {
 //   makeGetConversationControllerFactory().handle(req, res)
 // })
