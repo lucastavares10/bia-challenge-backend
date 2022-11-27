@@ -6,5 +6,5 @@ export interface CreateBotRepository {
 
 export namespace CreateBotRepository {
   export type Params = { name: string }
-  export type Result = BotModel
+  export type Result = BotModel | null
 }

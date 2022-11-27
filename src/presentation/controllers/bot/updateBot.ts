@@ -16,10 +16,6 @@ export class UpdateBotController implements Controller {
     try {
       const { id } = req.params
 
-      if (!id) {
-        throw new ParamRequired('Id é obrigatório!')
-      }
-
       await botYupValidationSchema.validate(req.body, {
         abortEarly: false,
       })

@@ -15,10 +15,6 @@ export class FindByIdBotController implements Controller {
     try {
       const { id } = req.params
 
-      if (!id) {
-        throw new ParamRequired('Id é obrigatório!')
-      }
-
       const bot = await this.findByIdBotUseCase.execute(id)
       return res.status(200).json({
         status: ResponseStatus.OK,

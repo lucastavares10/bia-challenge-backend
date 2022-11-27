@@ -3,7 +3,6 @@ import { IResponse, ResponseStatus } from '@/utils/service'
 import ControllersExceptionHandler from '@/presentation/helpers/ControllersExceptionHandler'
 import { Controller } from '@/presentation/protocols/controller'
 import { FindAllByConversationIdMessage } from '@/domain/usecases/message/findAllByConversationIdMessage'
-import { ParamRequired } from '@/data/errors/paramRequired'
 
 export class FindAllByConversationIdMessageController implements Controller {
   constructor(
@@ -16,9 +15,6 @@ export class FindAllByConversationIdMessageController implements Controller {
   ): Promise<Response<IResponse>> {
     try {
       const { conversationId } = req.query
-
-      if (!conversationId)
-        throw new ParamRequired('Query param conversationId é obrigatório!')
 
       const listMessage =
         await this.findAllByConversationIdMessageUseCase.execute(

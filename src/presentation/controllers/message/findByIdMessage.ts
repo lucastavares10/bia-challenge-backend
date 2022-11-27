@@ -15,8 +15,6 @@ export class FindByIdMessageController implements Controller {
     try {
       const { id } = req.params
 
-      if (!id) throw new ParamRequired('Id é obrigatório!')
-
       const message = await this.findByIdUseCase.execute(id)
       return res.status(201).json({
         status: ResponseStatus.OK,

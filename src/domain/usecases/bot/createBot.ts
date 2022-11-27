@@ -6,5 +6,5 @@ export interface CreateBot {
 
 export namespace CreateBot {
   export type Params = { name: string }
-  export type Result = Bot
+  export type Result = Bot | null
 }

@@ -15,10 +15,6 @@ export class DeleteBotController implements Controller {
     try {
       const { id } = req.params
 
-      if (!id) {
-        throw new ParamRequired('Id é obrigatório!')
-      }
-
       const deleted = await this.deleteBotUseCase.execute(id)
       return res.status(204).json({
         status: ResponseStatus.OK,
