@@ -102,9 +102,13 @@ Aplicação estará disponível em <http://localhost:4000>.
 
 ## Documentação REST
 
-Os recursos REST da api estão documentados com Swagger, disponíveis uma vez que o projeto estiver rodando: [http://localhost:4000/api/docs/](http://localhost:4000/api/docs/)
+**Os recursos REST da api estão documentados com Swagger, disponíveis uma vez que o projeto estiver rodando: [http://localhost:4000/api/docs/](http://localhost:4000/api/docs/)**
 
 <img src="./.github/images/swagger.png" alt="swagger"></a>
+
+**Exemplo de requisições**
+
+- Na pasta raiz do projeto existe um arquivo de importação para o Insomnia com exemplo de todas as requisições (Insomnia_bia-challenge)
 
 ## Contribuidores
 
