@@ -66,8 +66,6 @@ Principais ferramentas e tecnologias utilizadas no projeto:
 
 ## Design Patterns e Metodologias
 
-Principais ferramentas e tecnologias utilizadas no projeto:
-
 - **Clean Architecture**
 - **SOLID**
 - **Factory**
