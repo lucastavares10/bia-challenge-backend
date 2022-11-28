@@ -37,8 +37,9 @@
 
 1. [Descrição do desafio](#Descrição-desafio)
 2. [Tecnologias](#Tecnologias)
-3. [Design Patterns](#Design-patterns)
+3. [Design Patterns e Metodologias](#Design-patterns)
 4. [Metodologias](#Metodologias)
+5. [Documentação REST](#Documentação-REST)
 
 ## Descrição do desafio
 
@@ -90,7 +91,7 @@ docker-compose up -d
 
 - Necessário uma conexão com o MongoDB, configurar no .env do projeto antes de executar
 
-<img src="./.github/images/dbconfig.png" alt="dbconfig"></a>
+<img src="./.github/images/challenge.png" alt="challenge"></a>
 
 ```bash
 npm install
