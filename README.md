@@ -71,7 +71,6 @@ Principais ferramentas e tecnologias utilizadas no projeto:
 - **SOLID**
 - **Factory**
 - **Dependency Injection**
-- **Adapter**
 - **Keep It Simple, Silly (KISS)**
 
 ## Instruções de uso
