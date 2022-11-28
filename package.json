@@ -61,6 +61,7 @@
     "morgan": "^1.10.0",
     "reflect-metadata": "^0.1.13",
     "socket.io": "^4.5.4",
+    "swagger-ui-express": "^4.6.0",
     "ts-jest": "^26.4.4",
     "typeorm": "^0.3.10",
     "winston": "^3.3.3",

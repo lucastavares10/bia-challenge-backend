@@ -1,8 +1,11 @@
-import express, { Request, Response, NextFunction } from 'express'
+import express, { Request, Response, NextFunction, Router } from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 
 import routes from '../routes'
+
+import swaggerUi from 'swagger-ui-express'
+import swaggerFile from '@/docs/swagger.json'
 
 const app = express()
 
@@ -32,5 +35,7 @@ morgan.token('body', (req: express.Request) => {
 app.use(morgan(':date[iso] :method :url :status :body - :total-time ms'))
 
 app.use('/api', routes)
+
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 export default app
