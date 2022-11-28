@@ -39,7 +39,8 @@
 2. [Tecnologias](#Tecnologias)
 3. [Design Patterns e Metodologias](#Design-patterns)
 4. [Metodologias](#Metodologias)
-5. [Documentação REST](#Documentação-REST)
+5. [Instruções de uso](#Instruções-de-uso)
+6. [Documentação REST](#Documentação-REST)
 
 ## Descrição do desafio
 
