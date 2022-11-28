@@ -98,6 +98,12 @@ npm start
 
 Aplicação estará disponível em <http://localhost:4000>.
 
+**4. Testes com Jest**
+
+```bash
+npm run test
+```
+
 ## Documentação REST
 
 **Os recursos REST da api estão documentados com Swagger, disponíveis uma vez que o projeto estiver rodando: [http://localhost:4000/api/docs/](http://localhost:4000/api/docs/)**
