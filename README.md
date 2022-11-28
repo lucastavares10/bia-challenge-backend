@@ -43,7 +43,7 @@
 
 ## Descrição do desafio
 
-- ...
+<img src="./.github/images/challenge.png" alt="challenge"></a>
 
 ## Tecnologias
 
@@ -91,7 +91,7 @@ docker-compose up -d
 
 - Necessário uma conexão com o MongoDB, configurar no .env do projeto antes de executar
 
-<img src="./.github/images/challenge.png" alt="challenge"></a>
+<img src="./.github/images/dbconfig.png" alt="dbconfig"></a>
 
 ```bash
 npm install
